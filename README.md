@@ -4,6 +4,21 @@
 
 Forked from [wiggin77/mailrelay](https://github.com/wiggin77/mailrelay)
 
+## Usage
+
+Run a container on port 2525, setup outgoing SMTP server to fastmail and add user authentication.
+
+```bash
+docker run -d --restart always --name mailrelay -p 2525:25 \
+  -e PORT=25 \
+  -e SMTP_HOST=smtp.fastmail.com \
+  -e SMTP_PORT=587 \
+  -e SMTP_STARTTLS=true \
+  -e SMTP_USERNAME=user@fastmail.com \
+  -e SMTP_PASSWORD=secretpassword \
+  evc54/mailrelay
+```
+
 ## Configuration
 
 | Environment Variable | Description                 | Example           | Default |
